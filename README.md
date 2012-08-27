@@ -9,11 +9,11 @@ The program can optionally also replace addresses in the stack frame with javasc
 ## Example usage
 
 To capture stack traces:
-  xperf -on Latency -stackwalk profile
-  run the scenario you want to profile.
-  xperf -d perf.etl
-  SET _NT_SYMBOL_PATH=srv*C:\symbols*http://msdl.microsoft.com/downloads/symbols
-  xperf -i perf.etl -o perf.csv -symbols
+   1. xperf -on Latency -stackwalk profile
+   2. run the scenario you want to profile.
+   3. xperf -d perf.etl
+   4. SET _NT_SYMBOL_PATH=srv*C:\symbols*http://msdl.microsoft.com/downloads/symbols
+   5. xperf -i perf.etl -o perf.csv -symbols
 
 To extract the stack for process x.exe and fold the stacks into perf.csv.fold.:
   node etlfold.js perf.csv x.exe
@@ -28,14 +28,14 @@ First ensure that the built-in node ETW provider is registered. Use wevtutil ep 
 If it is not available you may need to install a newer version of node. To manually register the manifest use 'wevtutil im node_etw_provider.man'
 
 To capture stack traces:
-  xperf -start symbols -on NodeJS-ETW-provider -f symbols.etl -BufferSize 128
-  xperf -on Latency -stackwalk profile
-  run the scenario you want to profile.
-  xperf -d perf.etl
-  xperf -stop symbols
-  SET _NT_SYMBOL_PATH=srv*C:\symbols*http://msdl.microsoft.com/downloads/symbols
-  xperf -merge perf.etl symbols.etl perfsym.etl
-  xperf -i perfsym.etl -o perf.csv -symbols
+   1. xperf -start symbols -on NodeJS-ETW-provider -f symbols.etl -BufferSize 128
+   2. xperf -on Latency -stackwalk profile
+   3. run the scenario you want to profile.
+   4. xperf -d perf.etl
+   5. xperf -stop symbols
+   6. SET _NT_SYMBOL_PATH=srv*C:\symbols*http://msdl.microsoft.com/downloads/symbols
+   7. xperf -merge perf.etl symbols.etl perfsym.etl
+   8. xperf -i perfsym.etl -o perf.csv -symbols
 
 The remaining steps are the same as in the previous example.
 
