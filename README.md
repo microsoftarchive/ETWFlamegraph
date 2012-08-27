@@ -15,10 +15,10 @@ To capture stack traces:
    4. SET _NT_SYMBOL_PATH=srv*C:\symbols*http://msdl.microsoft.com/downloads/symbols
    5. xperf -i perf.etl -o perf.csv -symbols
 
-To extract the stack for process x.exe and fold the stacks into perf.csv.fold:
+To extract the stack for process x.exe and fold the stacks into perf.csv.fold:  
    node etlfold.js perf.csv x.exe
 
-Then run the flamegraph script (requires perl) to generate the svg output:
+Then run the flamegraph script (requires perl) to generate the svg output:  
    flamegraph.pl perf.csv.fold > perf.svg
 
 
