@@ -516,15 +516,18 @@ function processStackEntry(line) {
     if (map != null) {
       // found a matching symbol for this address
 
-      // find source file. Combine with line number
-      var srcfile = bucket.srcfiles[map.srcid];
-      if (srcfile) {
-        if (map.srcline) {
-          srcfile = srcfile + ':' + map.srcline;
+      // find source file if id != 0. Combine with line number
+      var srcfile = '';
+      if (map.srcid != 0) {
+        srcfile = bucket.srcfiles[map.srcid];
+        if (srcfile) {
+          if (map.srcline) {
+            srcfile = srcfile + ':' + map.srcline;
+          }
+          srcfile = ' ' + srcfile;
+        } else {
+          srcfile = '';
         }
-        srcfile = ' ' + srcfile;
-      } else {
-        srcfile = '';
       }
 
       // build modified symbol for javascript from symbol and source file
