@@ -1,0 +1,11 @@
+{
+  "name" : "etw-flamegraph",
+  "version" : "0.0.1",
+  "description" : "Converts Windows XPerf stack traces from csv file to folded stacks for flamegraph input",
+  "keywords" : ["ETW", "XPerf", "flamegraph"],
+  "homepage" : "https://github.com/MSOpenTech/ETWFlamegraph.git/#readme",
+  "author" : { "name" : "Henry Rawas", "email": "henryr@schakra.com" },
+  "main" : "./etwfold.js",
+  "repository" : { "type" : "git", "url" : "https://github.com/MSOpenTech/ETWFlamegraph.git" },
+  "os" : [ "win32" ]
+}
