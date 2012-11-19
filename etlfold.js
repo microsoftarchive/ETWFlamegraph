@@ -220,7 +220,7 @@ addressMapBucket.prototype.reset = function () {
 
 // update map address in bucket
 addressMapBucket.prototype.move = function (map) {
-  var oldmap = find(map.start);
+  var oldmap = this.find(map.start);
   if (oldmap != null && oldmap.start === map.start) {
     // code was moved. Update existing map addresses
     var len = oldmap.stop - oldmap.start;
@@ -233,7 +233,7 @@ addressMapBucket.prototype.move = function (map) {
 
 // remove map address in bucket
 addressMapBucket.prototype.remove = function (map) {
-  var oldmap = find(map.start);
+  var oldmap = this.find(map.start);
   if (oldmap != null && oldmap.start === map.start) {
     // code was removed. Set existing map addresses to 0
     oldmap.start = 0;
